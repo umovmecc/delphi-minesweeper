@@ -14,7 +14,7 @@ uses
   UMineSweeperFieldBuilderTest in 'UMineSweeperFieldBuilderTest.pas';
 
 {$R *.RES}
-
+                  
 begin
   Application.Initialize;
 

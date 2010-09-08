@@ -17,7 +17,8 @@ implementation
 
 procedure TMineSweeperFieldBuilderTest.TestFieldShouldHaveNumberOfLinesAndAColumns;
 begin
-  CheckTrue(1<>2,'One should not be igual to Two');
+  CheckTrue(1<>2,'One should not be equal to Two');
+  CheckFalse(1=2,'One should not be equal to Two');
 end;
 
 initialization
