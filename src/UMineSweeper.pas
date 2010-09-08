@@ -5,7 +5,7 @@ interface
 uses SysUtils;
 
 type
-  EFieldBuilderException = class(Exception);
+  EFieldBuilder = class(Exception);
 
   TMineSweeper = class
   private
@@ -26,7 +26,7 @@ implementation
 constructor TMineSweeper.Create(AColumnCount, ALineCount: integer);
 begin
   if(AColumnCount = 0) or (ALineCount = 0) then
-    raise EFieldBuilderException.Create('What we have got here is failure communication');
+    raise EFieldBuilder.Create('What we have got here is failure communication');
   FColumnCount := AColumnCount;
   FLineCount := ALineCount;
 end;
