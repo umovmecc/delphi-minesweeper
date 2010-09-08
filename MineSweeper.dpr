@@ -2,7 +2,8 @@ program MineSweeper;
 
 uses
   Forms,
-  UFrmMineSweeper in 'src\UFrmMineSweeper.pas' {Form1};
+  UFrmMineSweeper in 'src\UFrmMineSweeper.pas' {Form1},
+  UMineSweeper in 'src\UMineSweeper.pas';
 
 {$R *.res}
 

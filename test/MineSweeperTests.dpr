@@ -11,7 +11,8 @@ uses
   Forms,
   GUITestRunner {$ENDIF},
   TextTestRunner,
-  UMineSweeperFieldBuilderTest in 'UMineSweeperFieldBuilderTest.pas';
+  UMineSweeperFieldBuilderTest in 'UMineSweeperFieldBuilderTest.pas',
+  UMineSweeper in '..\src\UMineSweeper.pas';
 
 {$R *.RES}
                   

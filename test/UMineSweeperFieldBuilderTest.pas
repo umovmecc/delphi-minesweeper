@@ -3,11 +3,18 @@ unit UMineSweeperFieldBuilderTest;
 interface
 
 uses
-  TestFrameWork;
+  TestFrameWork,
+  UMineSweeper;
 
 type
 
   TMineSweeperFieldBuilderTest = class(TTestCase)
+
+  protected
+    FMineSweeper: TMineSweeper;
+    procedure SetUp; override;
+
+
   published
     {: Every Test Method should be in a published module}
     procedure TestFieldShouldHaveNumberOfLinesAndAColumns;
@@ -15,11 +22,20 @@ type
 
 implementation
 
+procedure TMineSweeperFieldBuilderTest.SetUp;
+begin
+  inherited;
+  FMineSweeper := TMineSweeper.Create;
+  FMineSweeper.ColumnCount := 4;
+
+end;
+
 procedure TMineSweeperFieldBuilderTest.TestFieldShouldHaveNumberOfLinesAndAColumns;
 begin
-  CheckTrue(1<>2,'One should not be equal to Two');
-  CheckFalse(1=2,'One should not be equal to Two');
+  CheckEquals(4, FMineSweeper.ColumnCount,'column should be equal to four');
+  CheckEquals(4, 4,'line should be equal to four');
 end;
+
 
 initialization
  TestFramework.RegisterTest(TMineSweeperFieldBuilderTest.Suite);
