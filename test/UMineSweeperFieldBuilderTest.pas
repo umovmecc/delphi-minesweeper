@@ -9,33 +9,36 @@ uses
 type
 
   TMineSweeperFieldBuilderTest = class(TTestCase)
-
-  protected
-    FMineSweeper: TMineSweeper;
-    procedure SetUp; override;
-
-
   published
-    {: Every Test Method should be in a published module}
     procedure TestFieldShouldHaveNumberOfLinesAndAColumns;
+    procedure TestShouldNotCreateFieldWithZeroLinesOrColumns;
   end;
 
 implementation
 
-procedure TMineSweeperFieldBuilderTest.SetUp;
-begin
-  inherited;
-  FMineSweeper := TMineSweeper.Create;
-  FMineSweeper.ColumnCount := 4;
-
-end;
-
 procedure TMineSweeperFieldBuilderTest.TestFieldShouldHaveNumberOfLinesAndAColumns;
+var
+    FMineSweeper: TMineSweeper;
 begin
-  CheckEquals(4, FMineSweeper.ColumnCount,'column should be equal to four');
-  CheckEquals(4, 4,'line should be equal to four');
+  FMineSweeper := TMineSweeper.Create(4,4);
+  CheckEquals(4, FMineSweeper.ColumnCount,'columns should be equal to four');
+  CheckEquals(4, FMineSweeper.LineCount,'lines should be equal to 4');
 end;
 
+
+procedure TMineSweeperFieldBuilderTest.TestShouldNotCreateFieldWithZeroLinesOrColumns;
+var
+    FMineSweeper: TMineSweeper;
+begin
+  try
+    FMineSweeper := TMineSweeper.Create(0,0);
+    Fail('Deveria ter lançado exceção');
+  except
+    on EFB:EFieldBuilder do
+    else
+      raise;
+  end;
+end;
 
 initialization
  TestFramework.RegisterTest(TMineSweeperFieldBuilderTest.Suite);
